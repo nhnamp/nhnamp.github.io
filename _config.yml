@@ -14,19 +14,19 @@ timezone:
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Chirpy # the main title
+title: Nhat Nam Phan # the main title
 
-tagline: A text-focused Jekyll theme # it will display as the subtitle
+tagline: My personal blog # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  blog, nhnamp, github
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
 url: "https://nhnamp.github.io"
 
 github:
-  username: github_username # change to your GitHub username
+  username: nhnamp # change to your GitHub username
 
 twitter:
   username: twitter_username # change to your Twitter username
@@ -98,7 +98,7 @@ theme_mode: # [light | dark]
 cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: https://scontent.fsgn10-1.fna.fbcdn.net/v/t39.30808-6/480402073_1592802298014653_548337767078788452_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFQOboC0VMjmK8JIfLMNfd1FjLsIFzvoQ0WMuwgXO-hDaiAlT8_JyuIynaDyDsYhXwUuQLY6_Icz98UXhdiAV9g&_nc_ohc=LkHh0jcFHVcQ7kNvgFiPnrU&_nc_oc=AdkAWzwCMEC0Z0MjE1FFz1TwVTAl7sORedlLylEiCcK-MBy-Wje3XjUOZlz0hakyUN9C3x139MheS_SmBGwskTMM&_nc_zt=23&_nc_ht=scontent.fsgn10-1.fna&_nc_gid=nmXnBh9yrm3cLMoQtSQGpg&oh=00_AYGeIFHooxNrNw4UlQeaIJKX9CTTi0jnbzDpsp_KXUNvRA&oe=67EB72C6
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.
