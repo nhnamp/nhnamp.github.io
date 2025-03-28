@@ -1,3 +1,11 @@
+---
+title: "Regex Tutorial"
+date: 2025-03-28
+categories: [Tutorial, Regex]
+tags: [UIT]
+---
+
+
 # [IT003.P21.CTTN] Bài thu hoạch tìm hiểu về thư viện Regular Expression
 Sinh viên: Phan Bản Nhật Nam.
 
