@@ -1,5 +1,9 @@
 # The Site Configuration
 future: true
+
+include:
+  - assets
+
 # Import the theme
 theme: jekyll-theme-chirpy
 
