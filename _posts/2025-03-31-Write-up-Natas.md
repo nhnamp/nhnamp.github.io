@@ -779,7 +779,7 @@ while len(passwordFound) < 32:
 ## Level 18
 
 ![image](https://hackmd.io/_uploads/Bymd6W2nyx.png)
-There isn't any hint about the 'admin account'.
+There isn't any hint about the `admin account`.
 Source code:
 
 ```php
@@ -1022,7 +1022,7 @@ function myread($sid) {
     return session_encode() ?: "";
 }
 
-function mywrite($sid, $data) {
+function mywrite($sid, $data) { 
     // $data contains the serialized version of $_SESSION
     // but our encoding is better
     debug("MYWRITE $sid $data");
