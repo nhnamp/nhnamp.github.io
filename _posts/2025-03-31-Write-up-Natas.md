@@ -129,7 +129,7 @@ To get the secret, I have to submit a string as a parameter of the function `enc
 To solve this, we try to decode `$encodeSecret`: **hex2bin --> strrev --> base64_decode**.
 This is a script written in Python to solve this problem:
 
-```python=
+```python
 import base64
 import binascii
 
@@ -201,7 +201,7 @@ There's an message: 'Cookies are protected with XOR encryption'.
 Let's go to the source code to find some hints.
 ![image](https://hackmd.io/_uploads/rklZTZE3yx.png)
 
-```php=
+```php
 <?
 
 $defaultdata = array( "showpassword"=>"no", "bgcolor"=>"#ffffff");
@@ -270,7 +270,7 @@ Ciphertext is the value I got from the cookie `data` on the website, Plaintext i
 
 Write a Python script to find out the key:
 
-```python=
+```python
 import base64
 import json
 
@@ -309,7 +309,7 @@ Now I have JSON data, I will process oppositely to the processing above:
 
 Write a Python script to solve this problem:
 
-```python=
+```python
 import base64
 import json
 
@@ -346,7 +346,7 @@ This level's website allows me to upload an image (max: 1kB).
 ![image](https://hackmd.io/_uploads/HksZWHr2ke.png)
 After upload, there's only a message containing the path to this image. Let's go to exploit the source code.
 
-```php=
+```php
 <?php
 
 function genRandomString() {
@@ -406,7 +406,7 @@ Let's make a short research to know how to keep the file's extension.
 ![image](https://hackmd.io/_uploads/rkXehBBnkl.png)
 It is able to write a PHP script to print out the password and use Burp to keep the file's extension as `.php`.
 
-```php=
+```php
 <?php
 echo system ("cat /etc/natas_webpass/natas13");
 ?>
@@ -424,7 +424,7 @@ The password of level 13 is **trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC**
 The same as level 12, but now the website has been added a filter to the extension of the file.
 ![image](https://hackmd.io/_uploads/HkZxMUr21l.png)
 
-```php=
+```php
 <?php
 
 function genRandomString() {
@@ -500,7 +500,7 @@ This is a login form. But I don't have any hint about the username and password.
 ![image](https://hackmd.io/_uploads/rJwYtLHnyl.png)
 Of course, I can't login. Let's view source code.
 
-```php=
+```php
 <?php
 if(array_key_exists("username", $_REQUEST)) {
     $link = mysqli_connect('localhost', 'natas14', '<censored>');
@@ -535,7 +535,7 @@ Password for level 15: **SdqIqBsFcz3yotlNYErZSZwblkm0lrvx**
 The website allows me to check if a username is already existed.
 The sourcecode:
 
-```php=
+```php
 <?php
 
 /*
@@ -577,7 +577,7 @@ It seems that the password of this user is also the password of level 16. Look a
 I think I can add another statement to check the password by bruteforcing each character. For example, let's check if the password contains letter `a` (then `b`, `c`, ...) --> if the website returns `This user exists`, this means the password contains the letter above.
 Write a Python script to solve this task:
 
-```python=
+```python
 import requests
 import string
 
@@ -636,7 +636,7 @@ The password for level 16: **hPkjKYviLQctEW33QmuXL6eDVfMW4sGo**
 Find words containing again!
 The sourcecode:
 
-```php=
+```php
 <?
 $key = "";
 
@@ -666,7 +666,7 @@ On the other hand, if the command does not return an output, the word is still t
 If this value is true, it will change the word --> there's nothing after searching. If it is false, there're results after searching.
 Let's write a short Python script to do this task.
 
-```python=
+```python
 import requests
 import string
 
@@ -702,7 +702,7 @@ Password for level 17: **EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC**
 There's a form to check the existence of a username.
 Source code:
 
-```php=
+```php
 <?php
 
 /*
