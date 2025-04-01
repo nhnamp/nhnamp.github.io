@@ -10,7 +10,7 @@ tags: [Web Security]
 > Link: [https://overthewire.org/wargames/natas/](https://overthewire.org/wargames/natas/)
 > Natas teaches the basics of serverside web-security.
 >
-> Each level of natas consists of its own website located at [http://natasX.natas.labs.overthewire.org](http://natasX.natas.labs.overthewire.org), where X is the level number. There is no SSH login. To access a level, enter the username for that level (e.g. natas0 for level 0) and its password.
+> Each level consists of its own website. There is no SSH login. To access a level, enter the username for that level (e.g. natas0 for level 0) and its password.
 >
 > Each level has access to the password of the next level. Your job is to somehow obtain that next password and level up. All passwords are also stored in /etc/natas_webpass/
 
@@ -50,7 +50,6 @@ There's nothing in the page. So I try inspecting the website to find some hints.
 
 I have found a suspicious image tag, the image is only in 1x1 pixel and even not appear in the website. The image is contained in a folder called **files**.
 Go to the source of the image by extending the link of the website.
-→ [http://natas2.natas.labs.overthewire.org/files](http://natas2.natas.labs.overthewire.org/files)
 
 ![image](https://hackmd.io/_uploads/HkBH7nfhyx.png)
 
