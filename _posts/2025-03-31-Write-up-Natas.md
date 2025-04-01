@@ -887,7 +887,7 @@ function print_credentials() { /* {{{ */
 This function is used to print password if `_SESSION` is not empty, consists (key, value) = (admin, 1).
 
 ```php
-function isValidAdminLogin() { /* {{{ */
+function isValidAdminLogin() { 
     if($_REQUEST["username"] == "admin") {
     /* This method of authentication appears to be unsafe and has been disabled for now. */
         //return 1;
