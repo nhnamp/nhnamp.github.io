@@ -1136,7 +1136,7 @@ The password of level 20 is **p5mCvP7GS2K6Bmt3gqhM2Fc1A5T8MVyw**
 
 ## Level 20
 
-![image](lv20-1.png)
+![image](/assets/images/lv20-1.png)
 
 Source code:
 
@@ -1254,7 +1254,7 @@ Starting with the function `session_start()`, it initializes a session or loads 
 
 Let's make a short research to know clearly how this function works.
 
-![image](lv20-2.png)
+![image](/assets/images/lv20-2.png)
 
 As I see, when this function is called, PHP need to know if any session is working. It finds `PHPSESSID` in parameters in GET/ POST request or Cookies. If `PHPSESSID` is existing, PHP resumes the old session. Otherwise, it initializes a new session.
 
@@ -1357,6 +1357,6 @@ This is the correctly URL:
 http://natas20.natas.labs.overthewire.org/index.php?name=admin%0Aadmin%201
 ```
 
-![image](lv20-3.png)
+![image](/assets/images/lv20-3.png)
 
 Password: **BPhv63cKE1lkQl04cE5CuFTzXe15NfiH**
