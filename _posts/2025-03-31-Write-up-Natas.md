@@ -20,7 +20,7 @@ Typing the username and password (natas0 by default) to be redirected to the lev
 
 Right-click and choose 'View page source' → receive the password for level 1.
 
-![image](https://hackmd.io/_uploads/HJpqKxfnye.png)
+![image](/assets/images/level-0-1.png)
 
 The password for level 1 is **0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq**
 
@@ -30,13 +30,13 @@ Logging in with the password found in the previous level.
 
 Visiting the website, I have received an message that the right-click function is disabled.
 
-![image](https://hackmd.io/_uploads/HkvCAiG2kl.png)
+![image](/assets/images/level-1-1.png)
 
 Searching for the shortcut to view page source.
 
 Pressing Ctrl + U, I see that the password is hidden in a comment.
 
-![image](https://hackmd.io/_uploads/rkluSyhznJl.png)
+![image](/assets/images/level-1-2.png)
 
 The password for level 2: **TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI**
 
@@ -46,21 +46,21 @@ Logging in with the password found in the previous level.
 
 Visiting the website, I have received a message:
 
-![image](https://hackmd.io/_uploads/SJrPgnfh1x.png)
+![image](/assets/images/level-2-1.png)
 
 There's nothing in the page. So I try inspecting the website to find some hints.
 
-![image](https://hackmd.io/_uploads/B1oiz3z3yg.png)
+![image](/assets/images/level-2-2.png)
 
 I have found a suspicious image tag, the image is only in 1x1 pixel and even not appear in the website. The image is contained in a folder called **files**.
 
 Go to the source of the image by extending the link of the website.
 
-![image](https://hackmd.io/_uploads/HkBH7nfhyx.png)
+![image](/assets/images/level-2-3.png)
 
 There's another .txt file. Clicking to view the content of the file, I have received the password for level 3.
 
-![image](https://hackmd.io/_uploads/H16t72fhkg.png)
+![image](/assets/images/level-2-4.png)
 
 The password for level 3 is **3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH**
 
@@ -70,7 +70,7 @@ Logging in with the password found in the previous level.
 
 As the level 2, there's nothing in the page. So I try inspecting the website to find more hints.
 
-![image](https://hackmd.io/_uploads/SJzuU3GnJe.png)
+![image](/assets/images/level-3-1.png)
 
 I have found a strange comment: 'No more information leak, not even Google will find it this time'.
 
@@ -78,15 +78,15 @@ After a short research, I have known that there's a file called **robots.txt**, 
 
 Try going to the **robots.txt** file on this website by extend the link with **/robots.txt**.
 
-![image](https://hackmd.io/_uploads/SJ4dPnf3yx.png)
+![image](/assets/images/level-3-2.png)
 
 I have received another path called **/s3cr3t/** (maybe it means **secret**) to 'disallow' files or folders. Then I follow that path.
 
-![image](https://hackmd.io/_uploads/HkDe_hM2ye.png)
+![image](/assets/images/level-3-3.png)
 
 I found another .txt file. Try opening it, then I have received the password for level 4.
 
-![image](https://hackmd.io/_uploads/B1NmOhz3kl.png)
+![image](/assets/images/level-3-4.png)
 
 The password for level 4 is **QryZXc2e0zahULdHrtHxzyYkj59kUxLQ**
 
@@ -94,7 +94,7 @@ The password for level 4 is **QryZXc2e0zahULdHrtHxzyYkj59kUxLQ**
 
 Logging in with the password found in the previous level.
 
-![image](https://hackmd.io/_uploads/rJVXRnGnkx.png)
+![image](/assets/images/level-4-1.png)
 
 I have received a message: 'Access disallowed' and the reason refer to the 'source' of my request (it must be natas5 instead of natas4).
 
@@ -102,58 +102,58 @@ I guess that this level asks me to change my 'source' to 'natas5'.
 
 Try refreshing website a few times.
 
-![image](https://hackmd.io/_uploads/rkVWJafnyg.png)
-![image](https://hackmd.io/_uploads/ByJ4JTz21x.png)
+![image](/assets/images/level-4-2.png)
+![image](/assets/images/level-4-3.png)
 
 The URL was appeared and changed, but it still from natas4.
 
 Let's make a little bit research to know how to change 'where I am from'.
 
-![image](https://hackmd.io/_uploads/Bkz4g6Gn1g.png)
+![image](/assets/images/level-4-4.png)
 
 This problem refers to a content named **Referer** in the HTML GET request.
 
 I think I can catch the request and change the **Referer** content in the request.
 
-![image](https://hackmd.io/_uploads/rJupg6z2Jx.png)
+![image](/assets/images/level-4-5.png)
 
 In the GET request, it really contains my **Referer** → use BurpSuite to catch this GET request and change the **Referer**.
 
-![image](https://hackmd.io/_uploads/SkDzzTzhkl.png)
+![image](/assets/images/level-4-6.png)
 
 Adding this request to Repeater, then change the **Referer** and resend the request.
 
-![image](https://hackmd.io/_uploads/H1NUfaznkl.png)
+![image](/assets/images/level-4-7.png)
 
 The password for level 5 is **0n35PkggAPm2zbEpOU802c0x0Msn1ToK**
 
 ## Level 5
 
-![image](https://hackmd.io/_uploads/Hyu37TM2Je.png)
+![image](/assets/images/level-5-1.png)
 
 Going to the level's website, I have received a message 'You are not logged in'.
 
 I have no hints about the login function on this website. Let's inspect the website to find more hints.
 
-![image](https://hackmd.io/_uploads/HJyf46M3yg.png)
+![image](/assets/images/level-5-2.png)
 
 In the Cookies tab of this website, I found a cookies called 'loggedin' and it's current value is 0 (maybe it indicates that I haven't logged in).
 
 Try changing the cookies' value to 1 (or any number that's not equal to 0, I think) and reload the website.
 
-![image](https://hackmd.io/_uploads/rJwoVaznJx.png)
+![image](/assets/images/level-5-3.png)
 
 The password for level 6: **0RoJwHdSKWFTYR5WuiAewauSuNaBXned**
 
 ## Level 6
 
-![image](https://hackmd.io/_uploads/rkK3KaM3ye.png)
+![image](/assets/images/level-6-1.png)
 
 Going to the level's website, I have received a form, it requires 'secret' (maybe something like a password). Currently, I don't have any hint about the 'secret', I have tried typing some random 'secret', but all of them are wrong.
 
 There's also a 'View sourcecode' button, try clicking on it, then I can view the source code of the website.
 
-![image](https://hackmd.io/_uploads/H1A59azhke.png)
+![image](/assets/images/level-6-2.png)
 
 There's maybe a PHP code contained in the source.
 
@@ -161,11 +161,11 @@ It includes a file in the path: **includes/secret.inc**. The function of this co
 
 Following that path by extending the link of the website:
 
-![image](https://hackmd.io/_uploads/H18wj6MnJe.png)
+![image](/assets/images/level-6-3.png)
 
 An empty website, try inspecting it.
 
-![image](https://hackmd.io/_uploads/BJIYiTf31e.png)
+![image](/assets/images/level-6-4.png)
 
 I can see the 'secret' immediately in the HTML: **FOEIUWGHFEEUHOFUOIU**
 
@@ -173,7 +173,7 @@ Back to the home page, submit and receive the password for level 7: **bmg8SvU1Li
 
 ## Level 7
 
-![image](https://hackmd.io/_uploads/r1wur-m31g.png)
+![image](/assets/images/level-7-1.png)
 
 This is the main page of the website. There's 2 tabs: Home and About.
 
@@ -181,23 +181,23 @@ Look at the URL, there's a parameter on it: **page**. Change between Home and Ab
 
 Try inspecting the website:
 
-![image](https://hackmd.io/_uploads/SknZvWXhyg.png)
+![image](/assets/images/level-7-2.png)
 
 There's a hint about the path where the password for level 8 is contained.
 
 Try changing the value of the parameter **page** to the path above, then I have successfully received the password for level 8: **xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q**
 
-![image](https://hackmd.io/_uploads/HJ89vZXn1g.png)
+![image](/assets/images/level-7-3.png)
 
 ## Level 8
 
-![image](https://hackmd.io/_uploads/B1Q6OR73kg.png)
+![image](/assets/images/level-8-1.png)
 
 The home page of this level is the same as level 6.
 
 There's no hint about the secret. Let's go to the source code.
 
-![image](https://hackmd.io/_uploads/SJapt0X3yl.png)
+![image](/assets/images/level-8-2.png)
 
 There's a short PHP code about encoding and decoding.
 
@@ -227,56 +227,56 @@ original_secret = base64.b64decode(reversed_string).decode()
 print(original_secret) 
 ```
 
-![image](https://hackmd.io/_uploads/SJ6_j073yl.png)
+![image](/assets/images/level-8-3.png)
 
 The string after decoding: **oubWYf2kBq**. This is also the 'secret'.
 
-![image](https://hackmd.io/_uploads/S113sRmhyx.png)
+![image](/assets/images/level-8-4.png)
 
 Submitting it and receive the password for level 9: **ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t**
 
 ## Level 9
 
-![image](https://hackmd.io/_uploads/rJ1Zn0Xh1l.png)
+![image](/assets/images/level-9-1.png)
 
 The home page is the same as level 8. There's no hint about the function 'Find words containing'. Let's try exploiting the source code.
 
-![image](https://hackmd.io/_uploads/SJaRJ1V3Jl.png)
+![image](/assets/images/level-9-2.png)
 
 There's a function to check if the input is contained in the file `dictionary.txt`.
 
 This function use `passthru`, which is able for me to exploit. Let's make a short research about `passthru`.
 
-![image](https://hackmd.io/_uploads/Hkf_eJNhye.png)
+![image](/assets/images/level-9-3.png)
 
 It seems that this function take a command as an input, execute it and print directly to the browser without any checking.
 In the PHP code given, the command is `grep -i $key dictionary.txt`, which means it returns the result of finding the word `key` in the file `dictionary.txt`.
 
 There're some ways to run multiple commands in 1 line. Let's make a short research.
 
-![image](https://hackmd.io/_uploads/HJIP-yV31e.png)
+![image](/assets/images/level-9-4.png)
 
 It seems that I can use `&&` or `;` to seperate 2 commands. The difference is if I use `&&`, all commands must be successfully executed. So I will use `;`, which is safer.
 
-![image](https://hackmd.io/_uploads/HkSJfkE3ke.png)
+![image](/assets/images/level-9-5.png)
 
 In the introduction of this wargame, there's a hint that all passwords are stored in `/etc/natas_webpass/natasX (X is the level)`.
 
 → I will run these 2 commands in 1 line: `hello ; cat /etc/natas_webpass/natas10`
 
-![image](https://hackmd.io/_uploads/SJBPQyEhye.png)
+![image](/assets/images/level-9-6.png)
 
 The password for level 10 is **t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu**
 
 ## Level 10
 
-![image](https://hackmd.io/_uploads/S1l2tkN3Je.png)
+![image](/assets/images/level-10-1.png)
 
 This level is similar to the previous level, but it seems that the website has added some filters for certain characters (like `;` that I used in the previous level).
 
 Let's go to the source code and explore how to bypass the filters.
 
-![image](https://hackmd.io/_uploads/S1Zkq1Eh1e.png)
+![image](/assets/images/level-10-2.png)
 
 This website now using `preg_match` to find if my input contains special characters: `/`, `[`, `;`, `&`, ... → this filter prevents me from using `;` or `&` like in the previous level.
 
@@ -284,7 +284,7 @@ But if my input do not contains special characters above, I can still run comman
 
 There's only a way left: grep command. Let's make a short research about this command.
 
-![image](https://hackmd.io/_uploads/SykboyE31g.png)
+![image](/assets/images/level-10-3.png)
 
 The `grep` command allows us to give multiple files for searching. So I can add the file containing the password: `/etc/natas_webpass/natas11`.
 
@@ -292,13 +292,13 @@ But there's a problem: I don't know which string or character is contained in th
 
 → Using this input: `a /etc/natas_webpass/natas11` (Only search for letter `a`, if it's not match, try another letter).
 
-![image](https://hackmd.io/_uploads/rkMxnJN2Je.png)
+![image](/assets/images/level-10-4.png)
 
 The password of the level 11 is: **UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk**
 
 ## Level 11
 
-![image](https://hackmd.io/_uploads/ry7D3ZN2yg.png)
+![image](/assets/images/level-11-1.png)
 
 There's a form, which allows me to set the background color by hexadecimal color.
 
@@ -306,7 +306,7 @@ There's an message: 'Cookies are protected with XOR encryption'.
 
 Let's go to the source code to find some hints.
 
-![image](https://hackmd.io/_uploads/rklZTZE3yx.png)
+![image](/assets/images/level-11-2.png)
 
 ```php
 <?
@@ -404,7 +404,7 @@ key = xor_encrypt(plaintext, ciphertext)
 print(key)
 ```
 
-![image](https://hackmd.io/_uploads/SyY2vVVn1g.png)
+![image](/assets/images/level-11-3.png)
 
 → key: `eDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoe`
 
@@ -447,7 +447,7 @@ print(data)
 
 Add a letter `D` after the key because I have changed the value from `no` to `yes` → the new value have 1 letter more than the old one.
 
-![image](https://hackmd.io/_uploads/Skr3oVN2ke.png)
+![image](/assets/images/level-11-4.png)
 
 The cookie data: `HmYkBwozJw4WNyAAFyB1VUc9MhxHaHUNAic4Awo2dVVHZzEJAyIxCUc5`
 
@@ -457,11 +457,11 @@ Password: **yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB**
 
 ## Level 12
 
-![image](https://hackmd.io/_uploads/rJ3AlrHhkl.png)
+![image](/assets/images/level-12-1.png)
 
 This level's website allows me to upload an image (max: 1kB).
 
-![image](https://hackmd.io/_uploads/HksZWHr2ke.png)
+![image](/assets/images/level-12-2.png)
 
 After upload, there's only a message containing the path to this image. Let's go to exploit the source code.
 
@@ -521,15 +521,15 @@ Let's make a short analysis on this php script:
 
 In the PHP script, I do not see any command to check the extension of the file, but in HTML, the extension is `jpg`, website also asks to upload .jpg file.
 
-![image](https://hackmd.io/_uploads/HJOUqrHhke.png)
+![image](/assets/images/level-12-3.png)
 
 → Maybe I can upload a PHP script to print out the content (password) of the file: `/etc/natas_webpass/natas13`. But at first, the file's extension must be kept as `.php`.
 
 Let's make a short research to know how to keep the file's extension.
 
-![image](https://hackmd.io/_uploads/Hy0_orr2kg.png)
+![image](/assets/images/level-12-4.png)
 
-![image](https://hackmd.io/_uploads/rkXehBBnkl.png)
+![image](/assets/images/level-12-5.png)
 
 It is able to write a PHP script to print out the password and use Burp to keep the file's extension as `.php`.
 
@@ -539,17 +539,17 @@ echo system ("cat /etc/natas_webpass/natas13");
 ?>
 ```
 
-![image](https://hackmd.io/_uploads/S1rjJUr3kl.png)
+![image](/assets/images/level-12-6.png)
 
 The file's extension is automatically set to `.jpg`, let's change it to `.php`.
 
-![image](https://hackmd.io/_uploads/ryz318H2ye.png)
+![image](/assets/images/level-12-7.png)
 
 The file hass been successfully uploaded as `.php`.
 
 Let's click on the path to view
 
-![image](https://hackmd.io/_uploads/ryg6kLrhJg.png)
+![image](/assets/images/level-12-8.png)
 
 The password of level 13 is **trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC**
 
@@ -557,7 +557,7 @@ The password of level 13 is **trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC**
 
 The same as level 12, but now the website has been added a filter to the extension of the file.
 
-![image](https://hackmd.io/_uploads/HkZxMUr21l.png)
+![image](/assets/images/level-13-1.png)
 
 ```php
 <?php
@@ -613,11 +613,11 @@ if(array_key_exists("filename", $_POST)) {
 
 This website uses `exif_imagetype` to check the if the file is an image or not. Let's make a short research about this function.
 
-![image](https://hackmd.io/_uploads/B1_KwLS3kl.png)
+![image](/assets/images/level-13-2.png)
 
 This function reads the first bytes of an image. Let's research more to know about **the first bytes** of a image.
 
-![image](https://hackmd.io/_uploads/SkfTDUrnJe.png)
+![image](/assets/images/level-13-3.png)
 
 I have explored that `.jpg` files contain these bytes in the head of the file: `FF D8 FF E0`.
 
@@ -632,17 +632,17 @@ Running these script in terminal to make the image file.
 
 Using the same skill used in the previous level to get the password.
 
-![image](https://hackmd.io/_uploads/Byqlt8r3Jg.png)
+![image](/assets/images/level-13-4.png)
 
 The password for level 14 is **z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ**
 
 ## Level 14
 
-![image](https://hackmd.io/_uploads/rJTSFIr2yg.png)
+![image](/assets/images/level-14-1.png)
 
 This is a login form. But I don't have any hint about the username and password. Let's try submitting some random usernames and passwords.
 
-![image](https://hackmd.io/_uploads/rJwYtLHnyl.png)
+![image](/assets/images/level-14-2.png)
 
 Of course, I can't login. Let's view source code.
 
@@ -673,15 +673,15 @@ The query: `$query = "SELECT * from users where username=\"".$_REQUEST["username
 
 Type in the `Username`: `" OR 1=1#` → make the password checking become a comment and make a bitwise operation OR between the username checking query and `1=1` (which is always return `true`) → login successfully.
 
-![image](https://hackmd.io/_uploads/rJxrGwrnkl.png)
+![image](/assets/images/level-14-3.png)
 
-![image](https://hackmd.io/_uploads/HJvfQDrnyl.png)
+![image](/assets/images/level-14-4.png)
 
 Password for level 15: **SdqIqBsFcz3yotlNYErZSZwblkm0lrvx**
 
 ## Level 15
 
-![image](https://hackmd.io/_uploads/r1l6BDrnJg.png)
+![image](/assets/images/level-15-1.png)
 
 The website allows me to check if a username is already existed.
 
@@ -724,7 +724,7 @@ if(array_key_exists("username", $_REQUEST)) {
 
 This level looks tricky, it only gives us "This user exists" or "This user doesn't exist". Let's try searching `natas16`.
 
-![image](https://hackmd.io/_uploads/BynljPrhyx.png)
+![image](/assets/images/level-15-2.png)
 
 It seems that the password of this user is also the password of level 16. Look at the query:
 `$query = "SELECT * from users where username=\"".$_REQUEST["username"]."\"";`
@@ -783,13 +783,13 @@ print("\nExtraction complete!")
 print(f"Password for {target_username}: {password}")
 ```
 
-![image](https://hackmd.io/_uploads/B1_vV_BhJl.png)
+![image](/assets/images/level-15-3.png)
 
 The password for level 16: **hPkjKYviLQctEW33QmuXL6eDVfMW4sGo**
 
 ## Level 16
 
-![image](https://hackmd.io/_uploads/Hy1Sqdr2Jg.png)
+![image](/assets/images/level-16-1.png)
 
 Find words containing again!
 
@@ -817,7 +817,7 @@ Try submitting `<letter> /etc/natas_webpass/natas16` like the trick used in leve
 
 There's an obvious missing by the filter: `$()`.
 
-![image](https://hackmd.io/_uploads/SyUM5st21e.png)
+![image](/assets/images/level-16-2.png)
 
 `$()` contains a command, this command is executed in a subshell. If it returns a value or something like that, the output is placed in the original command.
 
@@ -864,7 +864,7 @@ Password for level 17: **EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC**
 
 ## Level 17
 
-![image](https://hackmd.io/_uploads/ryKYT3F2ke.png)
+![image](/assets/images/level-17-1.png)
 
 There's a form to check the existence of a username.
 
@@ -945,13 +945,13 @@ while len(passwordFound) < 32:
             break
 ```
 
-![image](https://hackmd.io/_uploads/rkDXpb2nye.png)
+![image](/assets/images/level-17-2.png)
 
 The password of level 18 is **6OG1PbKdVjyBlpxgD4DDbRG6ZLlCGgCJ**
 
 ## Level 18
 
-![image](https://hackmd.io/_uploads/Bymd6W2nyx.png)
+![image](/assets/images/level-18-1.png)
 
 There isn't any hint about the `admin account`.
 
@@ -1082,23 +1082,23 @@ for i in range(1, 641):
         break
 ```
 
-![image](https://hackmd.io/_uploads/S1HS1Xh3kx.png)
+![image](/assets/images/level-18-2.png)
 
 I have found the `PHPSESSID` (session_id of an admin). Access to the website, change the value of the session cookie to 119, then refresh and retrieve the password.
 
-![image](https://hackmd.io/_uploads/r1Bkgm3hJe.png)
+![image](/assets/images/level-18-3.png)
 
 The password of level 19 is **tnwER7PdfWkxsG4FNWUtoAZ9VyZTJqJr**
 
 ## Level 19
 
-![image](https://hackmd.io/_uploads/ryA9x7231l.png)
+![image](/assets/images/level-19-1.png)
 
 Mostly the same as level 18, but now the session_id is no longer sequential (not a random number between 1 and 640).
 
 Let's try logging in with some different random accounts to find out the formular of the session_id.
 
-![image](https://hackmd.io/_uploads/H1I7-723kx.png)
+![image](/assets/images/level-19-2.png)
 
 This is a hex value: `3432322d6e6861746e616d`.
 Converting to ascii: `422-nhatnam` (I have logged in with the username `nhatnam`).
@@ -1126,11 +1126,11 @@ for i in range(100, 1000):
         break
 ```
 
-![image](https://hackmd.io/_uploads/BytL7X3n1l.png)
+![image](/assets/images/level-19-3.png)
 
 Cookie value: `3238312d61646d696e`
 
-![image](https://hackmd.io/_uploads/H1DtX73hke.png)
+![image](/assets/images/level-19-4.png)
 
 The password of level 20 is **p5mCvP7GS2K6Bmt3gqhM2Fc1A5T8MVyw**
 
@@ -1360,3 +1360,106 @@ http://natas20.natas.labs.overthewire.org/index.php?name=admin%0Aadmin%201
 ![image](/assets/images/lv20-3.png)
 
 Password: **BPhv63cKE1lkQl04cE5CuFTzXe15NfiH**
+
+## Level 21
+
+There are 2 web pages in this level.
+
+![image](/assets/images/lv21-2.png)
+
+![image](/assets/images/lv21-1.png)
+
+Source code for page 1:
+
+```php
+<?php
+
+function print_credentials() {
+    if($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1) {
+    print "You are an admin. The credentials for the next level are:<br>";
+    print "<pre>Username: natas22\n";
+    print "Password: <censored></pre>";
+    } else {
+    print "You are logged in as a regular user. Login as an admin to retrieve credentials for natas22.";
+    }
+}
+
+session_start();
+print_credentials();
+
+?>
+```
+
+Source code for page 1:
+
+```php
+<?php
+
+session_start();
+
+// if update was submitted, store it
+if(array_key_exists("submit", $_REQUEST)) {
+    foreach($_REQUEST as $key => $val) {
+    $_SESSION[$key] = $val;
+    }
+}
+
+if(array_key_exists("debug", $_GET)) {
+    print "[DEBUG] Session contents:<br>";
+    print_r($_SESSION);
+}
+
+// only allow these keys
+$validkeys = array("align" => "center", "fontsize" => "100%", "bgcolor" => "yellow");
+$form = "";
+
+$form .= '<form action="index.php" method="POST">';
+foreach($validkeys as $key => $defval) {
+    $val = $defval;
+    if(array_key_exists($key, $_SESSION)) {
+    $val = $_SESSION[$key];
+    } else {
+    $_SESSION[$key] = $val;
+    }
+    $form .= "$key: <input name='$key' value='$val' /><br>";
+}
+$form .= '<input type="submit" name="submit" value="Update" />';
+$form .= '</form>';
+
+$style = "background-color: ".$_SESSION["bgcolor"]."; text-align: ".$_SESSION["align"]."; font-size: ".$_SESSION["fontsize"].";";
+$example = "<div style='$style'>Hello world!</div>";
+
+?>
+```
+
+Looking at the source code of the first page, it seems that there's nothing different to other levels. There's only a `print_credentials()` function to check if the value of the `admin` field is equal to 1.
+
+Moving to the second page, I can see that there's a request check in the head of the script, then stores into session data:
+
+```php
+if(array_key_exists("submit", $_REQUEST)) {
+    foreach($_REQUEST as $key => $val) {
+    $_SESSION[$key] = $val;
+    }
+}
+```
+
+Information that user should put into requests is CSS style of the web page. There's a list of valid keys, but there isn't any checking in this program.
+
+→ All data is submitted will be stored in session data as `{key, value}`.
+
+Moreover, session data between 2 web pages is seemed to be connected together. Trying following this step to catch the password.
+
+- Login into the second page with the following URL:
+
+```plaintext
+http://natas21-experimenter.natas.labs.overthewire.org?submit&admin=1
+```
+
+- After the above step, I have had a cookie `PHPSESSID` with the `admin` field included and its value is 1.
+
+- Back to the first web page, inject this cookie into it and receive the password.
+
+![image](/assets/images/lv21-3.png)
+
+Password: **d8rwGBl0Xslg3b76uh3fEbSlnOUBlozz**
