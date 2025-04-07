@@ -1463,3 +1463,116 @@ http://natas21-experimenter.natas.labs.overthewire.org?submit&admin=1
 ![image](/assets/images/lv21-3.png)
 
 Password: **d8rwGBl0Xslg3b76uh3fEbSlnOUBlozz**
+
+## Level 22
+
+Source code:
+
+```php
+<?php
+session_start();
+
+if(array_key_exists("revelio", $_GET)) {
+    // only admins can reveal the password
+    if(!($_SESSION and array_key_exists("admin", $_SESSION) and $_SESSION["admin"] == 1)) {
+    header("Location: /");
+    }
+}
+?>
+
+<?php
+    if(array_key_exists("revelio", $_GET)) {
+    print "You are an admin. The credentials for the next level are:<br>";
+    print "<pre>Username: natas23\n";
+    print "Password: <censored></pre>";
+    }
+?>
+```
+
+This level is really easy. The second function checks if the GET request contains the parameter called `revelio`.
+
+I have used Burp to add this parameter to the GET request.
+
+![image](/assets/images/lv22-1.png)
+
+Password: **dIUQcI3uSus1JEOSSWRAEXBG8KbR8tRs**
+
+## Level 23
+
+![image](/assets/images/lv23-1.png)
+
+There's a input form to login.
+
+Trying submitting a random password, I have seen that the URL is extended by a parameter called `passwd`.
+
+![image](/assets/images/lv23-2.png)
+
+Source code:
+
+```php
+<?php
+    if(array_key_exists("passwd",$_REQUEST)){
+        if(strstr($_REQUEST["passwd"],"iloveyou") && ($_REQUEST["passwd"] > 10 )){
+            echo "<br>The credentials for the next level are:<br>";
+            echo "<pre>Username: natas24 Password: <censored></pre>";
+        }
+        else{
+            echo "<br>Wrong!<br>";
+        }
+    }
+    // morla / 10111
+?>  
+```
+
+This script checks if the `$_REQUEST` contains `passwd` parameter and its value is more than 10.
+
+I have noticed that the condition `($_REQUEST["passwd"] > 10 )` checks the `value` instead of the `string's length`.
+
+→ PHP will make an implicit type conversion → The `passwd` must begin with a number which is more than 10.
+
+![image](/assets/images/lv23-3.png)
+
+![image](/assets/images/lv23-4.png)
+
+Password: **MeuqmfJ8DDKuTr5pcvzFKSwlxedZYEWd**
+
+## Level 24
+
+The main page is similar to the previous level.
+
+Source code:
+
+```php
+<?php
+    if(array_key_exists("passwd",$_REQUEST)){
+        if(!strcmp($_REQUEST["passwd"],"<censored>")){
+            echo "<br>The credentials for the next level are:<br>";
+            echo "<pre>Username: natas25 Password: <censored></pre>";
+        }
+        else{
+            echo "<br>Wrong!<br>";
+        }
+    }
+    // morla / 10111
+?>  
+```
+
+The `strcmp` in PHP returns `0` when two strings are equal → In this script, the return value must be `0`, then the password will be revealed.
+
+At first, I had misunderstood that I can use a script to brute-force the censored part, but there's no signal from the server to indicates if a letter is correct or incorrect, so I had to find another way.
+
+Let's make a short research about `strcmp` function to know if there are some edge cases which make this function returns `0`.
+
+![image](/assets/images/lv24-1.png)
+
+There're some edge cases that `strcmp` function returns NULL and a warning. In particular, when the input is in invalid type, it returns NULL.
+
+In PHP, the comparison `NULL == 0` is returns true. This is called `weak typing`.
+
+→ I can submit the input contains invalid type, then the function will return 0.
+
+![image](/assets/images/lv24-2.png)
+
+![image](/assets/images/lv24-3.png)
+
+Password: **ckELKUWZUfpOv6uxS6M7lXBpBssJZ4Ws**
