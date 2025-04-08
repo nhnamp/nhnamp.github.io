@@ -1576,3 +1576,116 @@ In PHP, the comparison `NULL == 0` is returns true. This is called `weak typing`
 ![image](/assets/images/lv24-3.png)
 
 Password: **ckELKUWZUfpOv6uxS6M7lXBpBssJZ4Ws**
+
+## Level 25
+
+![image](/assets/images/lv25-1.png)
+
+The website allows me to change the language of a quote displaying on the screen.
+
+When I try changing the language, the URL is extended by a parameter called `lang`.
+
+Source code:
+
+```php
+<?php
+    // cheers and <3 to malvina
+    // - morla
+
+    function setLanguage(){
+        /* language setup */
+        if(array_key_exists("lang",$_REQUEST))
+            if(safeinclude("language/" . $_REQUEST["lang"] ))
+                return 1;
+        safeinclude("language/en"); 
+    }
+    
+    function safeinclude($filename){
+        // check for directory traversal
+        if(strstr($filename,"../")){
+            logRequest("Directory traversal attempt! fixing request.");
+            $filename=str_replace("../","",$filename);
+        }
+        // dont let ppl steal our passwords
+        if(strstr($filename,"natas_webpass")){
+            logRequest("Illegal file access detected! Aborting!");
+            exit(-1);
+        }
+        // add more checks...
+
+        if (file_exists($filename)) { 
+            include($filename);
+            return 1;
+        }
+        return 0;
+    }
+    
+    function listFiles($path){
+        $listoffiles=array();
+        if ($handle = opendir($path))
+            while (false !== ($file = readdir($handle)))
+                if ($file != "." && $file != "..")
+                    $listoffiles[]=$file;
+        
+        closedir($handle);
+        return $listoffiles;
+    } 
+    
+    function logRequest($message){
+        $log="[". date("d.m.Y H::i:s",time()) ."]";
+        $log=$log . " " . $_SERVER['HTTP_USER_AGENT'];
+        $log=$log . " \"" . $message ."\"\n"; 
+        $fd=fopen("/var/www/natas/natas25/logs/natas25_" . session_id() .".log","a");
+        fwrite($fd,$log);
+        fclose($fd);
+    }
+?>
+```
+
+It appears that this challenge is related to path traversal.
+
+Let's carry out an analysis about some significant functions in source code.
+
+- Function `setLanguage`: get the value of the parameter `lang` in `$_REQUEST`.
+
+- Function `safeinclude`: checks if the path included contains characters like `../` (back to previous directory) and `natas_webpass` (folder contains levels' passwords in natas).
+
+→ It seems that I cannot access to this folder via URL extending.
+
+- Function `logRequest`: this function takes a parameter named `message`, which is returned from `safeinclude`. Then it takes information from `HTTP_USER_AGENT`, `message`, `session_id()` and write into a log file.
+
+Now, let's follow these steps to exploit:
+
+- As I mentioned earlier, I cannot access to password folder via URL extending, because the program filters out banned strings in URL.
+
+- The function `logRequest` creates a `.log` file, then this file can also be included in server via `safeinclude` function.
+
+- In the `.log` file, there isn't any checking about the `HTTP_USER_AGENT`, so I can inject a PHP script in it. When the file is included, the script will be executed.
+
+→ I will use Burp Suite to change the `HTTP_USER_AGENT` into a PHP script to print out the password. Then, the `.log` file will be created and the PHP script will be executed.
+
+One more notice is how to access this `.log` file to read the password. Looking at the `safeinclude` function, when it meets `../`, these characters will be replaced by `""`. We can input `....//`, after replacing, the remained string will be `../`.
+
+Let's find out the path of the `.log` file.
+
+![image](/assets/images/lv25-2.png)
+
+![image](/assets/images/lv25-3.png)
+
+The full `lang` parameter will be:
+
+```plaintext
+lang=....//....//....//....//....//var/www/natas/natas25/logs/natas25_7lvrcllholm870j9gb45u8cb55.log
+```
+
+My `session_id`: **7lvrcllholm870j9gb45u8cb55**
+
+Going to Burp Suite, catch the GET request and change the `HTTP_USER_AGENT` into this PHP script.
+
+```php
+<?php echo shell_exec("cat /etc/natas_webpass/natas26"); ?>
+```
+
+![image](/assets/images/lv25-4.png)
+
+Password: **cVXXwxMS3Y26n5UZU89QgpGmWCelaQlE**
